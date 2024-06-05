@@ -205,6 +205,12 @@ IF(PTHREADPOOL_BUILD_BENCHMARKS)
     CXX_STANDARD 11
     CXX_EXTENSIONS NO)
   TARGET_LINK_LIBRARIES(latency-bench pthreadpool benchmark)
+  
+  ADD_EXECUTABLE(examples examples/addition.c)
+  SET_TARGET_PROPERTIES(examples PROPERTIES
+    CXX_STANDARD 11
+    CXX_EXTENSIONS NO)
+  TARGET_LINK_LIBRARIES(examples pthreadpool benchmark)
 
   ADD_EXECUTABLE(throughput-bench bench/throughput.cc)
   SET_TARGET_PROPERTIES(throughput-bench PROPERTIES

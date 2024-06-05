@@ -12,14 +12,21 @@ struct array_addition_context {
 
 static void add_arrays(struct array_addition_context* context, size_t i) {
 	context->sum[i] = context->augend[i] + context->addend[i];
+	printf("arrays: %lld\n", (long long)i);
 }
 
-#define ARRAY_SIZE 4
+#define ARRAY_SIZE 20
 
 int main() {
-	double augend[ARRAY_SIZE] = { 1.0, 2.0, 4.0, -5.0 };
-	double addend[ARRAY_SIZE] = { 0.25, -1.75, 0.0, 0.5 };
-	double sum[ARRAY_SIZE];
+	double augend[ARRAY_SIZE] = { 0 };
+	double addend[ARRAY_SIZE] = { 0};
+	double sum[ARRAY_SIZE] = {0};
+
+	for (int i = 1; i < ARRAY_SIZE; i++)
+	{
+		augend[i] = i;
+		addend[i] = i;
+	}
 
 	pthreadpool_t threadpool = pthreadpool_create(0);
 	assert(threadpool != NULL);
@@ -37,12 +44,20 @@ int main() {
 	pthreadpool_destroy(threadpool);
 	threadpool = NULL;
 
-	printf("%8s\t%.2lf\t%.2lf\t%.2lf\t%.2lf\n", "Augend",
-		augend[0], augend[1], augend[2], augend[3]);
-	printf("%8s\t%.2lf\t%.2lf\t%.2lf\t%.2lf\n", "Addend",
-		addend[0], addend[1], addend[2], addend[3]);
-	printf("%8s\t%.2lf\t%.2lf\t%.2lf\t%.2lf\n", "Sum",
-		sum[0], sum[1], sum[2], sum[3]);
+	for (size_t i = 1; i < ARRAY_SIZE; i++)
+	{
+		printf("%2.0f ", augend[i]);
+	}
+	printf("\n");
+	for (size_t i = 1; i < ARRAY_SIZE; i++)
+	{
+		printf("%2.0f ", addend[i]);
+	}
+	printf("\n");
+	for (size_t i = 1; i < ARRAY_SIZE; i++)
+	{
+		printf("%2.0f ", sum[i]);
+	}
 
 	return 0;
 }

@@ -27,6 +27,7 @@ def main(args):
         build.unittest("pthreadpool-test", build.cxx("pthreadpool.cc"))
 
     with build.options(source_dir="bench", deps=[build, build.deps.googlebenchmark]):
+        build.benchmark("examples", build.cxx("addition.c"))
         build.benchmark("latency-bench", build.cxx("latency.cc"))
         build.benchmark("throughput-bench", build.cxx("throughput.cc"))
 

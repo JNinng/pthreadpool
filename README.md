@@ -1,5 +1,9 @@
 # pthreadpool
 
+VS2022
+
+[source project](https://github.com/Maratyszcza/pthreadpool)
+
 [![BSD (2 clause) License](https://img.shields.io/badge/License-BSD%202--Clause%20%22Simplified%22%20License-blue.svg)](https://github.com/Maratyszcza/pthreadpool/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/travis/Maratyszcza/pthreadpool.svg)](https://travis-ci.org/Maratyszcza/pthreadpool)
 
